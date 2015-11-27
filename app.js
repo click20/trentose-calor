@@ -48,11 +48,15 @@ var view = {
         init: function(city) {
             
             var tmpl = '<li> <div class="icon"> <img src="img/icons/SOST.png"> </div> <div class="stats"> <h2>DAY</h2> <strong>min</strong> MINºC <strong>max</strong> MAXºC </div> </li>';
+            
             for(var f=0; f<4; f++){
-                    $("#summary").append(                                                                                                          tmpl.replace("SOST",controller.getCondition(f)).replace("DAY",controller.getDay(f)).replace("MIN",controller.getMinTemp(city,controller.getWeek(f).day)).replace("MAX",controller.getMaxTemp(city,controller.getWeek(f).day)) );
+                    $("#summary").append(                                                                                                                                                  tmpl.replace("SOST",controller.getCondition(f))
+                                         .replace("DAY",controller.getDay(f))
+                                         .replace("MIN",controller.getMinTemp(city,controller.getWeek(f).day))
+                                         .replace("MAX",controller.getMaxTemp(city,controller.getWeek(f).day)) 
+                                        );
             }
         }
- 
 };
 
 
