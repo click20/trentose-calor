@@ -1,4 +1,8 @@
 /* your code should go here */
+$(document).ready(function(){
+ 
+    
+});
 
 
 var model = {
@@ -13,28 +17,27 @@ var model = {
             condition: this.collection[l].condition,
             city: this.collection[l].city
         }); 
-        l = l+3;
+        l = l+7;
         }    
         return week;     
     },
     
-    cityMinMaxTemp: function(days,cities){
-        var trial= []; 
-        
-        for(var i=0; i< this.collection.lenght; i++){
-            
-            if( (this.collection[i].day == days) && (this.collection[i].city == cities)  ){
-                trial.push({
-                    day: this.collection[i].day,
-                    city: this.collection[i].city,
-                    temperature: this.collection[i].temperature
-                });
-                
+    cityMinMaxTemp: function(city){
+        var trial= []; var arrayTemp=[]; var minTemp=0; var maxTemp=0;
+            for(var i=0; i<this.collection.length; i++){
+                if( this.collection[i].city == city ){
+                    trial.push({
+                        day: this.collection[i].day
+                    });           
             }
+        minTemp= Math.min(...trial);
+        maxTemp= Math.max(...trial);
+        arrayTemp.push(minTemp,maxTemp);
+//        console.log(arrayTemp);
+        
         }
         return trial;
     }
-    
 };
 
 var view={
@@ -125,9 +128,5 @@ var controller={
 //            
 //};
 
-$(document).ready(function(){
- 
-    
-});
 
 
